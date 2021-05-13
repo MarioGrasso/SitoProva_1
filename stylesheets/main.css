@@ -1,0 +1,191 @@
+/**********GENERAL***********/
+
+
+* {
+	box-sizing: border-box;  /*con questa proprietà mantengo sotto controllo elementi che hanno es widht al 50 a cui aggiungo padding*/
+}
+
+
+html {
+	font-size: 62.5%;  /*equivale a 10px*/
+}
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.6rem;  /*cosi vale 16px*/
+}
+
+a {
+	text-decoration: none;
+	font-size: 1.5rem;
+}
+
+
+.container {           /*div per contenere le sezioni*/
+	max-width: 900px;  /*superiore a 900px img non si espande*/
+	margin: 0 auto;     /*ho messo al centro img*/
+	padding: 0 15px;   /*funge sotto i 900px*/
+}
+
+.clearfix::after {    /*pseudoclass per inserire un contenuto all'interno dell'elemento, correggo posiz.footer, la section non collassa e racchiude tutti gli elemeti*/
+	content: "";
+    clear: both;
+    display: table;
+
+}
+
+/*#gallery .item:nth-child(2n+1) { /*pseudoclass che mi permette di riportare a sinistra gli elementi, rimessa nella media quier in basso
+	clear: left;
+}*/
+
+
+/**********HEADER***********/
+
+
+header {
+	background-color: #a3a375;
+	text-align: center;
+	font-family: arial,sans-serif;
+}
+
+header .logo-container {
+	padding: 20px;
+}
+
+header img {
+	width: 160px;
+
+}
+
+/**********NAVIGATION***********/
+
+nav {
+	background-color: #6b6b47;
+	padding: 10px;
+}
+nav ul {
+	list-style-type: none;
+	text-decoration: none;
+	padding: 6px;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav li a {
+	padding: 5px 10px ;
+	text-transform: uppercase;
+    color: #000000;
+}
+
+
+
+
+/*******GALLERY*******/
+
+
+
+
+#gallery {
+	padding-top: 15px;      /*viene dato qui il padding e non in general*/
+	padding-bottom: 15px;
+}
+
+#gallery img {
+	width: 100%;
+	
+}
+
+#gallery .item {           /*seleziono gli item della gallery, procedimento per le colonne*/
+
+	width: 50%;
+	float: left;           /*posiziono elemento, utile anche per creare layout*/
+	padding: 15px;
+
+}
+
+#gallery .pictures img {
+	height: auto;
+}
+
+#gallery picture {
+	line-height: 0;
+}
+
+
+
+
+/*****************FOOTER****/
+
+
+
+
+/*footer .main {
+	clear: both;         /*riporto in basso il footer dopo il bug del float, questo crea un altro problema*/
+
+footer .main {
+	text-align: center;
+	padding: 15px;
+}
+
+footer .main img {
+	width: 25px;
+}
+
+footer .main a {
+	display: inline-block;
+	padding: 5px 10px;
+}
+
+footer .main p {
+	font-size: 1.2rem;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {     /*media quier-break point per il responsive, modifico caratteristica in funzione della larghezza schermo*/
+
+
+/*****************GALLERY****/
+
+
+
+#gallery .item {           /*con questa regola sovrascrivo perchè da desktop voglio 3 colonne*/
+
+	width: 33.3333%;
+}
+
+#gallery .item:nth-child(3n+1) { 
+	clear: left;
+}
+}
+
+
+
+@media only screen and (min-width: 992px) {
+
+	nav li a {
+		transition: background .3s
+	}
+	nav li a:hover {
+		background-color: #a3a375;
+		border-radius: 3px;
+		
+	}
+
+	#gallery .pictures {
+		transition: opacity .3s;
+	}
+
+	#gallery .pictures:hover {
+		opacity: .7;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	/****GALLERY****/
+#gallery .item:nth-child(2n+1) { 
+	clear: left;
+}
+}
